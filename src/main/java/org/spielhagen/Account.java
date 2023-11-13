@@ -1,5 +1,4 @@
 package org.spielhagen;
-
 import java.math.BigDecimal;
 
 public class Account {
@@ -35,5 +34,23 @@ public class Account {
 
     public void setCustomer(Client customer) {
         this.customer = customer;
+    }
+
+    public void deposit(BigDecimal amount) {
+        if (amount.compareTo(BigDecimal.ZERO) > 0) {
+            accountBalance = accountBalance.add(amount);
+            System.out.println("Spende ist angekommen. Neuer Kontostand: " + accountBalance);
+        } else {
+            System.out.println("Ungültiger Einzahlungsbetrag. (ZUWENIG!)");
+        }
+    }
+
+    public void withdraw(BigDecimal amount) {
+        if (amount.compareTo(BigDecimal.ZERO) > 0 && amount.compareTo(accountBalance) <= 0) {
+            accountBalance = accountBalance.subtract(amount);
+            System.out.println("Geschenk für Donald gekauft! Neuer Kontostand " + accountBalance);
+        } else {
+            System.out.println("Ungültiger Auszahlungsbetrag oder halt Pleite.");
+        }
     }
 }

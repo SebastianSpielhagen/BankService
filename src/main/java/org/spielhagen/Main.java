@@ -15,5 +15,13 @@ public class Main {
         System.out.println("Kontonummer: " + account.getAccountNumber());
         System.out.println("Kontostand: " + account.getAccountBalance());
         System.out.println("Spenden sind jederzeit willkommen! :-)");
+
+        // Deposit money into the account
+        BigDecimal depositAmount = BigDecimal.valueOf(500.0);
+        account.deposit(depositAmount);
+
+        // Withdraw money from the account
+        BigDecimal withdrawalAmount = BigDecimal.valueOf(200.0);
+        account.withdraw(withdrawalAmount);
     }
 }
